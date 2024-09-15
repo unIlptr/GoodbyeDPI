@@ -24,7 +24,7 @@ CFLAGS = -std=c2x -pie -fPIE -pipe -I$(WINDIVERTHEADERS) -L$(WINDIVERTLIBS) \
          -Wnull-dereference -Warray-bounds=2 -Wimplicit-fallthrough=3 \
          -Wstringop-overflow=4 \
          -Wformat-signedness -Wstrict-overflow=2 -Wcast-align=strict \
-         -Wfloat-equal -Wcast-align -Wsign-conversion \
+         -Wfloat-equal -Wcast-align -Wsign-conversion
 LDFLAGS = -fstack-protector-strong -flto -Wl,-O3,-pie,--dynamicbase,--nxcompat,--sort-common,--as-needed \
 -Wl,--disable-auto-image-base
 
