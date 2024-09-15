@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
-      - name: Install MinGW-w64 and update
+      - name: Install MinGW-w64
         run: >
           sudo rm /var/lib/man-db/auto-update &&
           sudo DEBIAN_FRONTEND=noninteractive XZ_DEFAULTS="-T0" XZ_OPT="-T0" eatmydata
