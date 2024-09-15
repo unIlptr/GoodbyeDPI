@@ -17,16 +17,15 @@ ifeq (, $(shell which $(CPREFIX)windres))
 	CCWINDRES = windres
 endif
 
-CFLAGS = -std=c99 -pie -fPIE -pipe -I$(WINDIVERTHEADERS) -L$(WINDIVERTLIBS) \
-         -O2 -D_FORTIFY_SOURCE=2 -fstack-protector \
+CFLAGS = -std=c23 -pie -fPIE -pipe -I$(WINDIVERTHEADERS) -L$(WINDIVERTLIBS) \
+         -march=x86-64-v3 -O3 -D_FORTIFY_SOURCE=2 -fstack-protector-strong \
          -Wall -Wextra -Wpedantic -Wformat=2 -Wformat-overflow=2 -Wformat-truncation=2 \
          -Wformat-security -Wno-format-nonliteral -Wshadow -Wstrict-aliasing=1 \
          -Wnull-dereference -Warray-bounds=2 -Wimplicit-fallthrough=3 \
          -Wstringop-overflow=4 \
          -Wformat-signedness -Wstrict-overflow=2 -Wcast-align=strict \
          -Wfloat-equal -Wcast-align -Wsign-conversion \
-         #-fstack-protector-strong
-LDFLAGS = -fstack-protector -Wl,-O1,-pie,--dynamicbase,--nxcompat,--sort-common,--as-needed \
+LDFLAGS = -fstack-protector-strong -flto -Wl,-O3,-pie,--dynamicbase,--nxcompat,--sort-common,--as-needed \
 -Wl,--disable-auto-image-base
 
 ifdef BIT64
